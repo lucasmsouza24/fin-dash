@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #1f77b4;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* title */
+.header-title h1 {
+    color: white;
+    margin: 0;
+    font-size: 28px;
+    font-family: Arial, sans-serif;
+}
+
+/* navigation */
+.header-nav {
+    display: inline-flex;
+    align-items: center;
+}
+
+.header-nav a {
+    color: white;
+    margin-right: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.header-nav a:hover {
+    text-decoration: underline;
+}
+
+/* dropdown */
+.header-dropdown {
+    width: 150px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
