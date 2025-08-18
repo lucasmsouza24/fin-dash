@@ -1,5 +1,4 @@
 from dash import Dash, html, page_container
-
 from components.header import Header
 
 app = Dash(__name__, use_pages=True)
