@@ -3,7 +3,7 @@ import numpy as np
 
 # creating fiction data
 np.random.seed(42)
-months = pd.date_range(start='2023-01-01', periods=36, freq='ME')
+months = pd.date_range(start='2024-07-01', periods=12, freq='ME')
 products = ['Produto A', 'Produto B', 'Produto C']
 regions = ['North', 'South', 'East', 'West']
 
