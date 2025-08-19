@@ -16,5 +16,7 @@ SHELL ["conda", "run", "-n", "fin-dash", "/bin/bash", "-c"]
 # Copy the entire project directory into the container
 COPY . .
 
+EXPOSE 8050
+
 # Define the default command to run when the container starts
-ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "fin-dash", "python", "app.py"]
+ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "fin-dash", "gunicorn", "wsgi:server", "-b", "0.0.0.0:8050", "-w", "4"]
