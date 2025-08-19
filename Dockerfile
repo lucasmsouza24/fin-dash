@@ -17,4 +17,4 @@ SHELL ["conda", "run", "-n", "fin-dash", "/bin/bash", "-c"]
 COPY . .
 
 # Define the default command to run when the container starts
-CMD ["conda", "run", "--no-capture-output", "-n", "fin-dash", "python", "app.py"]
+ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "fin-dash", "python", "app.py"]
