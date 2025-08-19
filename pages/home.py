@@ -2,7 +2,7 @@ from dash import html, register_page, Output, Input, callback
 import pandas as pd
 import plotly.express as px
 from components.kpi_card import KpiCard
-from services.finance_service import calculate_kpis
+from services.home import calculate_kpis
 
 register_page(__name__, path="/")
 
