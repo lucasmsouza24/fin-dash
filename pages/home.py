@@ -1,6 +1,5 @@
-from dash import html, register_page, Output, Input, callback
+from dash import html, register_page, Output, Input, callback, dcc
 import pandas as pd
-import plotly.express as px
 from components.kpi_card import KpiCard
 from services.home import calculate_kpis
 
@@ -24,8 +23,8 @@ layout = html.Div(
     Output('id-kpi-container', 'children'),
     Input('period-filter', 'value')
 )
-def update_example_graph(_):
-    kpis = calculate_kpis(df)
+def update_example_graph(period_filter):
+    kpis = calculate_kpis(df, period_filter)
     return [
         KpiCard('Revenue', kpis['revenue'], color="#d4edda"),
         KpiCard('Expense', kpis['expense'], color="#f8d7da"),
