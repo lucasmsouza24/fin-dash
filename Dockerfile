@@ -1,17 +1,20 @@
-# Use the official Python 3.11 slim image as the base
-FROM python:3.11-slim
+# Use Miniforge3 (conda-forge) as base image
+FROM condaforge/miniforge3:latest
 
 # Set the working directory inside the container to /app
 WORKDIR /app
 
-# Copy the requirements.txt file from the host into the container
-COPY requirements.txt .
+# Copy environment.yml file from the host into the container
+COPY environment.yml .
 
-# Install Python dependencies listed in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Create conda environment named "fin-dash" and clean caches
+RUN conda env create -f environment.yml && conda clean -afy
+
+# Ensure subsequent commands run in the "fin-dash" conda environment
+SHELL ["conda", "run", "-n", "fin-dash", "/bin/bash", "-c"]
 
 # Copy the entire project directory into the container
 COPY . .
 
 # Define the default command to run when the container starts
-CMD ["python", "app.py"]
+ENTRYPOINT ["conda", "run", "--no-capture-output", "-n", "fin-dash", "python", "app.py"]
