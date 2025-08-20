@@ -1,0 +1,7 @@
+services:
+  fin-dash-app:
+    build: .
+    container_name: fin-dash-app
+    ports:
+      - "8050:8050"
+    restart: unless-stopped
